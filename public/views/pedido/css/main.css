@@ -1,0 +1,116 @@
+ul {
+    list-style: none;
+}
+
+.container-sty {
+    font-weight: 700;
+    font-size: 12px;
+    border-radius: 10px;
+    padding: 5vh;
+    box-shadow: 0 2px 10px -4px black;
+    background: #2e2e2e;
+    margin: 2vh 0px;
+    color: #3de999;
+}
+
+
+.til {
+    margin: 5px 4px;
+    margin-bottom: 10px;
+    color: #4ba3f5;
+}
+
+.values {
+    margin: 5px 20px;
+}
+
+.val {
+    margin: 20px 0;
+    color: #a5a5a5;
+}
+.sin  {
+    font-size: 16px;
+    color: #3de999;
+}
+
+.fal {
+    font-size: 16px;
+    color: rgb(250, 134, 134);
+}
+
+.item-pedido {
+    background: linear-gradient(100deg, #e649a9, #4ba3f5);
+    padding-top: 10px;
+    padding: 10px 33px;
+    border-radius: 33px;
+    display: flex;
+ 
+    flex-direction: row;
+    color: #222222;
+    margin: 40px;
+    background-size: 200% 200%;
+    filter: opacity(90%);
+     
+   -webkit-animation: AnimationName 10s ease-out infinite;
+   -moz-animation: AnimationName 10s ease-out infinite;
+   animation: AnimationName 10s ease-out infinite;
+   
+}
+
+@-webkit-keyframes AnimationName {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+@-moz-keyframes AnimationName {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+@keyframes AnimationName { 
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+
+.status {
+    margin-left: 10px;
+    color: #05dd8a;
+    text-align: right;
+}
+.wrapper-nav {
+    margin: 20px;
+}
+
+.create-pedido {
+    margin: 70px;
+}
+
+.ped-h2 {
+    padding: 10px 0;
+}
+
+.ped-h1 {
+    padding: 50px 0;
+}
+
+.my-btn {
+    margin: 5px;
+}
+
+.date-container {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    margin: 10px;
+}
+
+p {
+    color: #a7a7a7;
+}
+
+.date-sly {
+    color: #e9e9e9;
+    position: absolute;
+    right: 21.5vw;
+}

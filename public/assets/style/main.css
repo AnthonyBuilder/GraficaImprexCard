@@ -1,0 +1,28 @@
+ul {
+    list-style: none;
+}
+
+* { 
+    font-family: sans-serif;
+    font-size: 12px;
+}
+
+.wrapper-nav {
+    margin: 20px;
+}
+
+.create-pedido {
+    margin: 70px;
+}
+
+.ped-h2 {
+    padding: 10px 0;
+}
+
+.ped-h1 {
+    padding: 50px 0;
+}
+
+.my-btn {
+    margin: 5px;
+}
