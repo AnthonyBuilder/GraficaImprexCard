@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        meta(http-equiv="X-UA-Compatible", content="ie=edge")
+
+        style 
+            include css/main.css
+        style 
+            include ../../../public/assets/bootstrap/css/bootstrap.css 
+        
+        each src in js 
+            script(src=src)
+
+        title Todos os clientes
+    body
+        div.content.mb-5
+            div.container 
+                div.content.mb-5
+                    div.row
+                        h2 Todos os clientes cadastrados
+                        hr  
+                        input.form-control.mIn(type="text" placeholder="Pesquisar cliente" onkeyup="searchClient()")
+
+        div.container
+            div.row.mRow
+                each client in allClients
+                    div.container.mCon
+                        div.card.mCard
+                            h5.card-header #{client.nome}
+                            div.card-body
+                                h5.card-title ID: #{client.ID_Client}
+                                p.card-text CPF: #{client.cpf}
+                                p.card-text Numero: #{client.numero}
+                            
+                                a(href="pedido/" + client.ID_Client).btn.btn-primary Ver pedidos
+                        

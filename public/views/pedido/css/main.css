@@ -1,116 +1,106 @@
-ul {
-    list-style: none;
-}
-
-.container-sty {
-    font-weight: 700;
-    font-size: 12px;
+.card-pedido {
+    margin: 10px;
+    margin-bottom: 20px;
+    padding: 20px;
     border-radius: 10px;
-    padding: 5vh;
-    box-shadow: 0 2px 10px -4px black;
-    background: #2e2e2e;
-    margin: 2vh 0px;
-    color: #3de999;
+    width: 18vw;
+    box-shadow: 0 1px 10px -5px black;
+    transition: 500ms;
+    background: #2c2c2c;
+    color: #ffffff;
 }
 
-
-.til {
-    margin: 5px 4px;
-    margin-bottom: 10px;
-    color: #4ba3f5;
+.card-pedido:hover {
+    box-shadow: 0 1px 20px -1px black;
 }
 
-.values {
-    margin: 5px 20px;
+.title {
+    font-weight: 800;
 }
 
-.val {
+.title-o {
+    margin-top: 10vh;
+    padding: 2vh 5px;
+}
+
+.quant,
+.data {
+    color: rgb(182, 182, 182)
+}
+
+.preco {
     margin: 20px 0;
-    color: #a5a5a5;
-}
-.sin  {
-    font-size: 16px;
-    color: #3de999;
 }
 
-.fal {
-    font-size: 16px;
-    color: rgb(250, 134, 134);
-}
-
-.item-pedido {
-    background: linear-gradient(100deg, #e649a9, #4ba3f5);
-    padding-top: 10px;
-    padding: 10px 33px;
-    border-radius: 33px;
-    display: flex;
- 
-    flex-direction: row;
-    color: #222222;
-    margin: 40px;
-    background-size: 200% 200%;
-    filter: opacity(90%);
-     
-   -webkit-animation: AnimationName 10s ease-out infinite;
-   -moz-animation: AnimationName 10s ease-out infinite;
-   animation: AnimationName 10s ease-out infinite;
-   
-}
-
-@-webkit-keyframes AnimationName {
-    0%{background-position:0% 50%}
-    50%{background-position:100% 50%}
-    100%{background-position:0% 50%}
-}
-@-moz-keyframes AnimationName {
-    0%{background-position:0% 50%}
-    50%{background-position:100% 50%}
-    100%{background-position:0% 50%}
-}
-@keyframes AnimationName { 
-    0%{background-position:0% 50%}
-    50%{background-position:100% 50%}
-    100%{background-position:0% 50%}
-}
-
-.status {
-    margin-left: 10px;
-    color: #05dd8a;
-    text-align: right;
-}
-.wrapper-nav {
-    margin: 20px;
-}
-
-.create-pedido {
-    margin: 70px;
-}
-
-.ped-h2 {
-    padding: 10px 0;
-}
-
-.ped-h1 {
-    padding: 50px 0;
-}
-
-.my-btn {
+.txt-client {
     margin: 5px;
 }
 
-.date-container {
-    display: flex;
-    flex-direction: row;
+.mA {
+    color: rgb(255, 255, 255);
+}
+
+.mBtn {
+    margin-top: 10px;
+}
+
+.btn-item {
+    margin: 2px 10px;
+}
+
+.total-p-container {
+    margin: 10px 3px;
+    background: #2c2c2c;
+    border-radius: 10px;
+    padding: 10px 15px;
+    color: rgb(177, 177, 177);
+}
+
+.pr-t {
+    margin: 5px 10px;
+    padding: 8px 0;
+}
+
+.pr {
+    padding: 5px;
+    margin: 15px;
+    color: white;
+}
+
+.mConState {
+    margin-top: 15px;
+}
+
+.mConState select {
+    font-size: medium;
     width: 100%;
-    margin: 10px;
+    padding: 7px;
+    border: none;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    color: whitesmoke;
+    background: #5d5d5d;
 }
 
-p {
-    color: #a7a7a7;
+.mB {
+    position: relative;
+    float: right;
+    margin: 2px 0;
 }
 
-.date-sly {
-    color: #e9e9e9;
-    position: absolute;
-    right: 21.5vw;
+.sub-title {
+    color: rgb(34, 238, 136);
+}
+
+.myForm {
+    margin: 20px 0;
+    padding: 10px 0;
+    border: none;
+    border-radius: 10px;
+    background: #2c2c2c;
+    color: rgb(177, 177, 177);
+}
+
+.in_none {
+    display: none;
 }
