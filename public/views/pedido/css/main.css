@@ -78,7 +78,7 @@
     border: none;
     border-radius: 5px;
     margin-bottom: 10px;
-    color: whitesmoke;
+    h color: whitesmoke;
     background: #5d5d5d;
 }
 
@@ -94,13 +94,48 @@
 
 .myForm {
     margin: 20px 0;
-    padding: 10px 0;
-    border: none;
+    padding: 10px 4px;
+    width: 100%;
     border-radius: 10px;
+    color: #dbdbdb;
     background: #2c2c2c;
-    color: rgb(177, 177, 177);
+    border: 2px solid #4c4c4c;
 }
 
 .in_none {
     display: none;
+}
+
+.pr-fal {
+    color: #f16767;
+}
+
+.sin-con {
+    margin-top: 20px;
+}
+
+.mHead {
+    padding: 10px;
+    background: #424242;
+    position: fixed;
+    color: whitesmoke;
+}
+
+.mhr {
+    border: .5px solid rgba(245, 245, 245, 0.267);
+}
+
+.con-orc {
+    position: -webkit-sticky;
+}
+
+.t {
+    font-weight: 900;
+    color: rgb(98, 98, 98);
+}
+
+.date {
+    margin: 5px;
+    color: rgb(19, 19, 19);
+    font-weight: 800;
 }

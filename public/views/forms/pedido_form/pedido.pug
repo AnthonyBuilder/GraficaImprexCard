@@ -42,7 +42,7 @@ html(lang="pt-br")
                 hr
                 div.mb-4
                     h4 Data entrega
-                    input.form-control(type="date", name="data_entrega", placeholder="Data de entrega", pattern="[0-9]{2}-[0-9]{2}-[0-9]{4}", required="true")
+                    input.form-control.date_in(type="date", name="data_entrega", placeholder="Data de entrega", required="true")
                     
                     textarea(name="id_client").in_cli #{id}
                 button.btn.btn-primary(type="submit") Cadastrar pedido

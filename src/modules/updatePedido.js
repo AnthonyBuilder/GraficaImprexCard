@@ -9,7 +9,7 @@ module.exports.formUpdatePedido = function (res, req, body) {
 
     console.log(id);
 
-    var sql = `UPDATE pedido SET quant = ${body.quant} WHERE ID_Pedido = ${id.pedido}`;
+    var sql = `UPDATE pedido SET quant = ${body.quant}, nome_pedido = '${body.name_pedido}', preco = ${body.preco}, data_entrega = ${body.data_entrega} WHERE ID_Pedido = ${id.pedido}`;
 
     return sql;
 }

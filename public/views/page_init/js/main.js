@@ -12,3 +12,15 @@ function redirPedido() {
     }
     redir('frm-pedido/' + person);
 }
+
+const formatter = new Intl.NumberFormat('pt-BR', {
+    style: 'currency',
+    currency: 'USD',
+    minimumFractionDigits: 2
+});
+
+console.log(formatter(1000));
+
+function redirPD(id) {
+    window.location.href = '/pedido/' + id;
+}

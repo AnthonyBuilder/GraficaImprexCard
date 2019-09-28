@@ -14,16 +14,17 @@ html(lang="en")
             script(src=src)
 
         title Todos os clientes
+
     body
-        div.content.mb-5
-            div.container 
-                div.content.mb-5
-                    div.row
-                        h2 Todos os clientes cadastrados
-                        hr  
-                        input.form-control.mIn(type="text" placeholder="Pesquisar cliente" onkeyup="searchClient()")
 
         div.container
+            br
+            div.content
+                div.row
+                    h2 Todos os clientes cadastrados
+                    hr  
+                    input.form-control.mIn(type="text" placeholder="Pesquisar cliente" onkeyup="searchClient()")
+
             div.row.mRow
                 each client in allClients
                     div.container.mCon

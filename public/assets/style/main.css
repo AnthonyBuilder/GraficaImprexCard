@@ -33,12 +33,12 @@ ul {
 
 .mBtn {
     border: none;
-    border-radius: 10px;
-    padding: 15px;
-    font-size: 1.2vw;
+    border-radius: 100px;
+    margin: 10px;
+    font-size: 1.1vw;
     transition: 500ms;
-    width: 19.1vw;
-    height: 11vh;
+    width: 12vw;
+    height: 6vh;
 }
 
 .mBtn:hover {
@@ -52,4 +52,27 @@ ul {
 .mBtn img {
     width: 1.5vw;
     margin: 10px;
+}
+
+.mRow {
+    display: flex;
+    flex-direction: row;
+}
+
+.mC {
+    width: 40%;
+    padding: 32px;
+    margin: 12px;
+    background: rgb(233, 233, 233);
+    border-radius: 10px;
+    transition: 500ms;
+}
+
+.successful {
+    border: 2px solid rgb(21, 204, 91);
+}
+
+.mC:hover {
+    box-shadow: 0 0 20px -5px;
+    transform: scale(1.01, 1.01);
 }

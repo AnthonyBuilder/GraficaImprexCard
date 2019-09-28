@@ -9,10 +9,10 @@
 
     each s in js
         script(src=s)
-        
+    
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.css">
     <link rel="stylesheet" href="assets/style/main.css">
-
+  
     <script defer type="script" href="assets/script/main.js"></script>
     <script src="assets/bootstrap/js/bootstrap.js"></script>
     <title>Pedidos grafica</title>
@@ -20,44 +20,23 @@
 
 <body>
 
-    <div class="wrapper-nav">
-        <ul class="nav">
-            <li class="nav-item">
-                <a class="nav-link active" href="/frm-cliente">Criar Cliente com Pedido</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/clientes">Criar Pedido para cliente existente</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Link</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link disabled" href="#">Disabled</a>
-            </li>
-        </ul>
-    </div>
-
-
     <div class="create-pedido">
         <div class="container">
             <div class="wrapper">
                 <div class="content">
                     <div class="item create">
-                        <h2 class="ped-h2">Clientes</h2>
-                        <div class="row">
+                        <h2 class="ped-h2">Clientes e seus pedidos</h2>
+        
+                        div.row
                             div.itm-btn-clients 
-                                button.mBtn(type="button", onclick="redir('clientes')") Todos os clientes 
-                                    img(src="../../assets/icons/svg/person.svg") 
+                                button.mBtn(type="button", onclick="redir('clientes')") Clientes 
                             div
+                        
                             div.itm-btn-clients 
-                                button.mBtn(type="button", onclick="redir('frm-cliente')") Cadastrar cliente com novo pedido
-                                    img(src="../../assets/icons/svg/person.svg") 
+                                button.mBtn(type="button", onclick="redir('frm-cliente')") Criar cliente  
                             div
-                            div.itm-btn-clients  
-                                button.mBtn(type="button", onclick="redirPedido()") Cadastrar pedido para um cliente 
-                                    img(src="../../assets/icons/svg/person.svg") 
-                            div
-                        </div>
+                        div 
+                        
                     </div>
                 </div>
             </div>
@@ -68,9 +47,37 @@
         div.wrapper
             div.mb-1
                 div.content
-                    div.pedidos-pendentes
+                        
+                        div.container
+                            h2.ped-h2 Pedidos Prontos
+                            div.row.mRow
+                                each pd in pedidos
+                                    case pd.pd_state
+                                        when "Pronto" 
+                                            div.mC.successful(onclick='redirPD(' + pd.ID_Client + ')') 
+                                                div.content
+                                                    h1.title-crd #{pd.nome_pedido}
+                                                    br
+                                                    h4 Status: #{pd.pd_state}
+                                                    h5.name-cli Data entrega: #{pd.data_entrega}
+                                                   
 
-                    div.pedidos-prontos 
+                        div.container
+                            br
+                            h1 Pedidos aguard. instalação
+                            div.row.mRow 
+                                each pd in pedidos
+                                    case pd.pd_state
+                                        when "Aguard. instalação" 
+                                            div.mC(onclick='redirPD(' + pd.ID_Client + ')') 
+                                                div.content
+                                                    h1.title-crd #{pd.nome_pedido}
+                                                    br
+                                                    h4 Status: #{pd.pd_state}
+                                                    h5.name-cli Data entrega: #{pd.data_entrega}
+                                                    
+
+
 </body>
 
 </html>
