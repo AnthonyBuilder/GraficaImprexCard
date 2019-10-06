@@ -57,34 +57,34 @@ head
                     div.grid 
                         div.row
                             each pedido in pedidos
-                                div.item 
-                                    div.card-pedido
-                                        button.btn.btn-primary.mB 
-                                            a.mA(href="frm-edit-pedido/" + pedido.ID_Pedido + "/" + client.ID_Client)
-                                                img(src="../../assets/icons/svg/pencil.svg")
-                                        div.content
-                                            h2.title #{pedido.nome_pedido}
-                                            h4.sub-title#mState #{pedido.pd_state}
-                                            hr.mhr
-                                            h6.quant Quantidade: #{pedido.quant}
-                                           
-                                            hr.mhr
-                                            h2.preco Preço: R$ #{pedido.preco}
+                                    div.item 
+                                        div.card-pedido
 
-                                            h6 #{dEntrega}
-                                        div
+                                            button.btn.btn-primary.mB 
+                                                a.mA(href="frm-edit-pedido/" + pedido.ID_Pedido + "/" + client.ID_Client)
+                                                    img(src="../../assets/icons/svg/pencil.svg")
 
-                                        div.mConState
-                                            form(action="set-s/" + pedido.ID_Pedido + "/" + pedido.ID_Client, method="post")
-                                                input.myForm(type="text", placeholder="Status", name="setState")
-                                                button.btn.btn-success(type="submit") Alterar o status 
-                                            form
-                                            form(action="/delete/" + pedido.ID_Pedido + "/" + pedido.ID_Client, method="post")
-                                                button.btn.btn-#btn-delete(type="submit") Finalizar pedido 
-                                            form
+                                            div.content
+                                                h2.title #{pedido.nome_pedido}
+                                                h4.sub-title#mState #{pedido.pd_state}
+                                                hr.mhr
+                                                h6.quant Quantidade: #{pedido.quant}
+                                                hr.mhr
+                                                h2.preco Preço: #{pedido.preco}
+                                        
+                                            div
+
+                                            div.mConState
+                                                form(action="set-s/" + pedido.ID_Pedido + "/" + pedido.ID_Client, method="post")
+                                                    input.myForm(type="text", placeholder="Status", name="setState")
+                                                    button.btn.btn-success(type="submit") Alterar o status 
+                                                form
+                                                form(action="/delete/" + pedido.ID_Pedido + "/" + pedido.ID_Client, method="post")
+                                                    button.btn.btn-#btn-delete(type="submit") Finalizar pedido 
+                                                form
+                                            div
                                         div
                                     div
-                                div
                         div
                     div        
                 div                     
@@ -97,19 +97,19 @@ head
                                     h1 Orçamento
                                 div.total-p-container
                                     h5.pr-t Preço total dos pedidos: 
-                                    h1.pr R$ #{totalP}
+                                    h1.pr #{totalP}
                                     hr
                                     h5.pr-t Sinal
                                 
                                     form(action="/sinal/" + id_c, method="post")
-                                        input.in_none(type="text", name="total_p_sinal", value=totalP)
+                                        input.in_none(type="text", name="total_p_sinal", value=tP)
                                         input.form-control(type="number", placeholder="Definir sinal", name="in_sinal")
                                         button.btn.btn-primary.mBtn(type="submit") Definir sinal
                                         hr
                                         div.container
                                             div.sin-con
                                                 h5.sin-inf Sinal pago
-                                                h2.sin-pr R$ #{sinal}
+                                                h2.sin-pr #{sinal}
                                             div
                                         div
                                     form
@@ -125,6 +125,6 @@ head
                                         button.btn.btn-success(type="submit") Definir forma de pagamento
                                     hr
                                     h5.pr-t Falta de pagamento 
-                                    h1.pr.pr-fal R$ #{falta}
+                                    h1.pr.pr-fal #{falta}
 </body>
 </html>

@@ -13,7 +13,8 @@ const express = require('express')
 const app = express()
 const ejs = require('ejs')
 const numeral = require('numeral')
-
+const moment = require('moment')
+const currency = require('currency-formatter')
 var id_c;
 
 var path = require('path')
@@ -64,6 +65,8 @@ app.use(express.static(__dirname + '/public'));
  *  
  */
 
+app.set('views', path.join(__dirname, 'public/views'));
+
 app.get('/', function (req, res) {
 
     let __clients, __pedidos, stPronto;
@@ -76,6 +79,7 @@ app.get('/', function (req, res) {
         if (err) throw err;
 
         let pd = JSON.parse(JSON.stringify(result_stp));
+
 
         if (pd !== null || pd !== '') {
 
@@ -92,14 +96,17 @@ app.get('/', function (req, res) {
 
 
 
-
-
-app.set('views', path.join(__dirname, 'public/views'));
+/**
+ * Obtem todos os pedidos do respectivo cliente
+ * Trata a quantidade e seu valor apresentando o resultado
+ * Define o sinal calculando a falta de seu respectivo valor
+ * Define seu status sinalizando o seu processo para entrega ao cliente
+ */
 
 var sql_c = 'SELECT * FROM client WHERE ID_Client = ?',
     sql_p = 'SELECT * FROM pedido WHERE ID_Client = ?',
     sql_falta = 'SELECT FORMAT(falta, 2) f, FORMAT(sinal, 2) s FROM orcamento WHERE ID_Client = ? LIMIT 1',
-    totalPedidos, id_p, result_c, valFalta, valSinal, rSinFal, dEntrega;
+    totalPedidos, id_p, result_c, valFalta, valSinal, rSinFal;
 
 var number = numeral(valFalta);
 //Obtem o model do Mysql para o front @form-pedido
@@ -108,7 +115,7 @@ app.get('/pedido/:id', function (req, res) {
     var id_cli = req.params.id;
     id_c = id_cli;
 
-    con.query(sql_c, id_cli, function (err, result_c, fields) {
+    con.query(sql_c, id_cli, (err, result_c, fields) => {
 
         if (err) throw err;
 
@@ -116,14 +123,9 @@ app.get('/pedido/:id', function (req, res) {
 
             if (err || result_p === null) throw err;
 
-            var date = new Date(result_p[0].data_entrega);
+            var date = moment(result_p[0].data_entrega).format('L');
 
-            var m = date.getMonth(),
-                d = date.getDay(),
-                y = date.getFullYear(),
-                formatDate = `${d} - ${m} - ${y}`;
-
-            console.log(result_p);
+            console.log(date);
 
             //Cria a tabela orcamento se ela não existir, ao acessar o pedido
             mTables.createTableOrcamento(con);
@@ -141,13 +143,6 @@ app.get('/pedido/:id', function (req, res) {
 
                 rPentrega = result_p[0].data_entrega;
                 dateF = new Date(rPentrega);
-
-                var mf = dateF.getMonth(),
-                    df = dateF.getDay(),
-                    yf = dateF.getFullYear();
-
-                dEntrega = `${df} - ${mf} - ${yf}`;
-
 
                 //define o valor em falta
                 con.query(sql_falta, id_cli, (err, sinFal) => {
@@ -167,18 +162,30 @@ app.get('/pedido/:id', function (req, res) {
                     faltaTotal = totalPedidos - valSinal;
                     inOrc.up(id_cli, valFalta, valSinal, faltaTotal, res, con);
 
+
+                    var f_currency = currency.format(valFalta, {
+                        code: 'BRL'
+                    });
+
+                    var s_currency = currency.format(valSinal, {
+                        code: 'BRL'
+                    });
+
+                    var t_currency = currency.format(totalPedidos, {
+                        code: 'BRL'
+                    })
+
                     res.render('pedido/pedido_view', {
                         js: ['views/pedido/js/main.js'],
                         pedidos: result_p,
                         client: result_cli[0],
-                        totalP: totalPedidos,
+                        tP: totalPedidos,
+                        totalP: t_currency,
                         id_c: id_cli,
-                        falta: valFalta,
-                        sinal: valSinal,
-                        data_e: formatDate,
-                        dE: dEntrega
+                        falta: f_currency,
+                        sinal: s_currency,
+                        data_e: date,
                     });
-
                 });
             });
         });
@@ -249,7 +256,7 @@ app.get('/clientes', (req, res) => {
     con.query(sql, (err, result, fields) => {
         res.render('clientes/index', {
             allClients: result,
-            js: ['views/clientes/js/main.js', 'https://ajax.googleapis.com/ajax/libs/jqueparamsry/3.4.1/jquery.min.js']
+            js: ['views/clientes/js/main.js']
         });
         //console.log('Clients', result);
     });
@@ -348,7 +355,7 @@ function formInsertDataInClients(req, res) {
             console.log(err);
         } else {
             console.log(result);
-            res.redirect(`frm-p:edido/${result.insertId}`);
+            res.redirect(`frm-pedido/${result.insertId}`);
         }
     });
 }

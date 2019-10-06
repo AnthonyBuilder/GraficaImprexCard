@@ -10,8 +10,8 @@ html(lang="en")
         style 
             include ../../../public/assets/bootstrap/css/bootstrap.css 
         
-        each src in js 
-            script(src=src)
+        script
+            include js/main.js
 
         title Todos os clientes
 
@@ -20,16 +20,15 @@ html(lang="en")
         div.container
             br
             div.content
-                div.row
-                    h2 Todos os clientes cadastrados
-                    hr  
-                    input.form-control.mIn(type="text" placeholder="Pesquisar cliente" onkeyup="searchClient()")
+                h2 Todos os clientes cadastrados
+                hr  
+                input.form-control.mIn(type="text" placeholder="Pesquisar cliente" onkeyup="searchClient()")
 
-            div.row.mRow
+            div.row#myRowAtClients
                 each client in allClients
                     div.container.mCon
                         div.card.mCard
-                            h5.card-header #{client.nome}
+                            h5.card-header.mNameCard #{client.nome}
                             div.card-body
                                 h5.card-title ID: #{client.ID_Client}
                                 p.card-text CPF: #{client.cpf}
